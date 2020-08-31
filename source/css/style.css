@@ -12,7 +12,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px 50px;
+  padding: 26px 50px;
 }
 
 .header__icon {
@@ -54,6 +54,11 @@ body {
   background: url("/source/img/BG-main.jpg") no-repeat center/cover;
 }
 
+.main-screen__text {
+  margin: 284px 0 0 127px;
+  max-width: 607px;
+}
+
 .tagline {
   margin: 0;
   padding: 0;
@@ -61,6 +66,14 @@ body {
   font-size: 100px;
   line-height: 100px;
   text-transform: uppercase;
+  color: #FFFEFE;
+  margin-bottom: 25px;
+}
+
+.sub-tagline {
+  font-family: OpiumNewC;
+  font-size: 18px;
+  line-height: 22px;
   color: #FFFEFE;
 }
 

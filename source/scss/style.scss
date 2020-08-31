@@ -10,7 +10,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 30px 50px;
+        padding: 26px 50px;
     }
 
 
@@ -64,8 +64,14 @@ body {
     height: 100vh;
 }
 
+	
 .main-screen {
     background: url('/source/img/BG-main.jpg') no-repeat center/cover;
+
+    &__text {
+        margin: 284px 0 0 127px;
+        max-width: 607px;
+    }
 }
 
 .tagline {
@@ -76,8 +82,15 @@ body {
     line-height: 100px;
     text-transform: uppercase;
     color: #FFFEFE;
+    margin-bottom: 25px;
 }
 
+.sub-tagline {
+    font-family: OpiumNewC;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFEFE;
+}
 
 
 
