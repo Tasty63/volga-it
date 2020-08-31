@@ -51,7 +51,7 @@ body {
 }
 
 .main-screen {
-  background: url("/img/BG-main.jpg") no-repeat center/cover;
+  background: url("volga-it/img/BG-main.jpg") no-repeat center/cover;
 }
 
 .main-screen__text {
