@@ -1,5 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Ubuntu', sans-serif;
+}
+
+h1,
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: normal;
 }
 
 .header {
@@ -19,6 +31,11 @@ body {
   background: white;
   padding: 14px;
   border-radius: 50%;
+}
+
+.header__logo {
+  width: 180px;
+  height: 58px;
 }
 
 .outer-wrapper {
@@ -51,7 +68,7 @@ body {
 }
 
 .main-screen {
-  background: url("volga-it/img/BG-main.jpg") no-repeat center/cover;
+  background: url("/img/BG-main.jpg") no-repeat center/cover;
 }
 
 .main-screen__text {
@@ -60,9 +77,6 @@ body {
 }
 
 .tagline {
-  margin: 0;
-  padding: 0;
-  font-family: 'Playfair Display', serif;
   font-size: 100px;
   line-height: 100px;
   text-transform: uppercase;
@@ -78,5 +92,54 @@ body {
 }
 
 .screen-2 {
-  background: url("/img/BG-main.jpg") no-repeat center/cover;
+  position: relative;
+  display: flex;
+}
+
+.screen-2__img-left {
+  width: 516px;
+  height: 681px;
+  margin: 110px 97px 0 127px;
+}
+
+.screen-2__content {
+  margin-top: 224px;
+  width: 1053px;
+}
+
+.screen-2__title {
+  font-size: 70px;
+  line-height: 70px;
+  color: #393838;
+}
+
+.screen-2__subtitle {
+  font-size: 18px;
+  line-height: 30px;
+  color: #393838;
+  margin: 45px 0 70px 0;
+}
+
+.screen-2__img-right {
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+  width: 593px;
+  height: 382px;
+  display: none;
+}
+
+.screen-number {
+  font-family: Petersburg;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 45px;
+  letter-spacing: -0.28341px;
+  color: #CCDACF;
+}
+
+.leaf-4 {
+  width: 111px;
+  height: 54px;
+  bottom: 19px;
 }
