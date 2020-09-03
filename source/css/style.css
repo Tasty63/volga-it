@@ -28,14 +28,28 @@ h2 {
 }
 
 .header__icon {
-  background: white;
-  padding: 14px;
+  background-color: white;
+  padding: 16px 16px;
   border-radius: 50%;
+}
+
+.header__icon:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .header__logo {
   width: 180px;
   height: 58px;
+}
+
+.header__logo-top.green path {
+  fill: #024B1D;
+}
+
+.header__logo-bottom {
+  width: 180px;
+  height: 6px;
 }
 
 .outer-wrapper {
@@ -68,7 +82,7 @@ h2 {
 }
 
 .main-screen {
-  background: url("/img/BG-main.jpg") no-repeat center/cover;
+  background: url("/img/main/BG.jpg") no-repeat center/cover;
 }
 
 .main-screen__text {
@@ -85,7 +99,6 @@ h2 {
 }
 
 .sub-tagline {
-  font-family: OpiumNewC;
   font-size: 18px;
   line-height: 22px;
   color: #FFFEFE;
@@ -97,12 +110,14 @@ h2 {
 }
 
 .screen-2__img-left {
+  position: relative;
   width: 516px;
   height: 681px;
   margin: 110px 97px 0 127px;
 }
 
 .screen-2__content {
+  position: relative;
   margin-top: 224px;
   width: 1053px;
 }
@@ -117,16 +132,40 @@ h2 {
   font-size: 18px;
   line-height: 30px;
   color: #393838;
-  margin: 45px 0 70px 0;
+  margin: 38px 0 50px 0;
+  max-width: 898px;
 }
 
 .screen-2__img-right {
   position: absolute;
   bottom: 0;
-  right: 50px;
-  width: 593px;
-  height: 382px;
-  display: none;
+  right: 25px;
+  width: 610px;
+  height: 370px;
+}
+
+.screen-2__leaf-2 {
+  position: absolute;
+  width: 200px;
+  height: 120px;
+  bottom: 50px;
+  right: 600px;
+}
+
+.screen-2__leaf-3 {
+  position: absolute;
+  width: 220px;
+  height: 250px;
+  top: -100px;
+  right: -70px;
+}
+
+.screen-2__leaf-4 {
+  position: absolute;
+  width: 120px;
+  height: 70px;
+  right: 55px;
+  top: 265px;
 }
 
 .screen-number {
@@ -138,8 +177,178 @@ h2 {
   color: #CCDACF;
 }
 
-.leaf-4 {
-  width: 111px;
-  height: 54px;
-  bottom: 19px;
+.screen-3 {
+  display: flex;
+  position: relative;
+}
+
+.screen-3__img-left {
+  margin-right: 97px;
+}
+
+.screen-3__content {
+  position: relative;
+  max-width: 823px;
+  margin-top: 481px;
+}
+
+.screen-3__title {
+  font-size: 70px;
+  line-height: 70px;
+  color: #393838;
+}
+
+.screen-3__subtitle {
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: -0.2px;
+  color: #393838;
+  margin: 38px 0 50px 0;
+}
+
+.screen-3__leaf-2 {
+  position: absolute;
+  width: 170px;
+  height: 100px;
+  top: -170px;
+  left: -85px;
+  transform: rotate(10deg);
+}
+
+.screen-3__leaf-4 {
+  position: absolute;
+  width: 210px;
+  height: 140px;
+  right: -250px;
+  bottom: 30px;
+}
+
+.screen-3__leaf-5 {
+  position: absolute;
+  width: 110px;
+  height: 100px;
+  top: -60px;
+  right: 200px;
+}
+
+.screen-3__img-right {
+  position: absolute;
+  top: 0;
+  right: 127px;
+}
+
+.screen-4 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video {
+  width: 1666px;
+  height: 745px;
+  margin-top: 20px;
+}
+
+.icon-play {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.icon-play:hover {
+  cursor: pointer;
+}
+
+.icon-play:hover .circle-1 {
+  opacity: 0.5;
+}
+
+.icon-play:hover .circle-2 {
+  opacity: 0.15;
+}
+
+.screen-5 {
+  display: flex;
+}
+
+.screen-5__img-left {
+  position: relative;
+}
+
+.screen-5__content {
+  position: relative;
+  margin: 234px 0 0 309px;
+}
+
+.screen-5__title {
+  font-size: 70px;
+  line-height: 70px;
+}
+
+.screen-5__subtitle {
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: -0.2px;
+  margin: 35px 0 70px 0;
+  max-width: 892px;
+}
+
+.screen-5__leaf-1 {
+  position: absolute;
+  width: 130px;
+  height: 110px;
+  top: 100px;
+  left: 380px;
+}
+
+.screen-5__leaf-2 {
+  position: absolute;
+  width: 160px;
+  height: 100px;
+  top: -85px;
+  left: -210px;
+}
+
+.screen-5__leaf-3 {
+  position: absolute;
+  width: 185px;
+  height: 210px;
+  right: 140px;
+  bottom: 70px;
+  transform: rotate(10deg);
+}
+
+.screen-5__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: OpiumNewC;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 30px;
+  text-decoration: none;
+  color: #066035;
+  background: linear-gradient(#066035, #074627);
+  width: 269px;
+  height: 72px;
+}
+
+.screen-5__button:hover .screen-5__button-text {
+  color: white;
+  background: linear-gradient(#066035, #074627);
+}
+
+.screen-5__button-text {
+  display: block;
+  padding: 12px 37px;
+  background: white;
+}
+
+.packages {
+  position: absolute;
+  bottom: -15px;
+  left: 50px;
 }
