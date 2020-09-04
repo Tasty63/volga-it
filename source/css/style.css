@@ -71,9 +71,9 @@ h2 {
 .wrapper {
   display: flex;
   flex-direction: row;
-  width: 500vw;
   transform: rotate(90deg) translateY(-100vh);
   transform-origin: top left;
+  width: 500vw;
 }
 
 .screen {
@@ -82,7 +82,7 @@ h2 {
 }
 
 .main-screen {
-  background: url("/img/main/bg.jpg") no-repeat center/cover;
+  background: url("../img/main/bg.jpg") no-repeat center/cover;
 }
 
 .main-screen__text {
