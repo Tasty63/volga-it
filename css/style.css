@@ -16,7 +16,7 @@ h2 {
 
 .header {
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
 }
 
@@ -29,7 +29,7 @@ h2 {
 
 .header__icon {
   background-color: white;
-  padding: 16px 16px;
+  padding: 16px;
   border-radius: 50%;
 }
 
@@ -38,18 +38,55 @@ h2 {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+.header__menu-icon {
+  padding: 19px 14px;
+  z-index: 3;
+}
+
+.header__menu-icon span {
+  transition: all 0.3s ease 0s;
+}
+
+.header__menu-icon span:nth-child(1),
+.header__menu-icon span:nth-child(2) {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #393838;
+  border-radius: 10px;
+}
+
+.header__menu-icon span:nth-child(2) {
+  margin: 3px 0;
+}
+
+.header__menu-icon span:nth-child(3) {
+  display: block;
+  width: 13px;
+  height: 2px;
+  background: #393838;
+  border-radius: 10px;
+}
+
+.header__menu-icon.active span:nth-child(1) {
+  transform: rotate(45deg) translate(3px, 4px);
+}
+
+.header__menu-icon.active span:nth-child(2) {
+  transform: rotate(-45deg);
+}
+
+.header__menu-icon.active span:nth-child(3) {
+  transform: scale(0);
+}
+
 .header__logo {
   width: 180px;
   height: 58px;
 }
 
-.header__logo-top.green path {
-  fill: #024B1D;
-}
-
-.header__logo-bottom {
-  width: 180px;
-  height: 6px;
+.header__logo-green {
+  display: none;
 }
 
 .outer-wrapper {
@@ -81,8 +118,12 @@ h2 {
   height: 100vh;
 }
 
+.screen-container {
+  max-width: 1920px;
+}
+
 .main-screen {
-  background: url("../../img/main/bg-main.jpg") no-repeat center/cover;
+  background: url("../img/main/bg-main.jpg") no-repeat center/cover;
 }
 
 .main-screen__text {

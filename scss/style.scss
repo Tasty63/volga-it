@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+$menu-items: 5;
+
 body {
     font-family: 'Ubuntu', sans-serif;
 }
@@ -16,7 +18,7 @@ h2 {
 
 .header {
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
 
     &__wrapper {
@@ -28,7 +30,7 @@ h2 {
 
     &__icon {
         background-color: rgba(255, 255, 255, 1);
-        padding: 16px 16px;
+        padding: 16px;
         border-radius: 50%;
 
         &:hover {
@@ -37,23 +39,55 @@ h2 {
         }
     }
 
-    &__menu-icon {}
+    &__menu-icon {
+        padding: 19px 14px;
+        z-index: 3;
+        span {
+            transition: all 0.3s ease 0s;
+        }
+        span:nth-child(1),
+        span:nth-child(2) {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: #393838;
+            border-radius: 10px;
+        }
+        span:nth-child(2) {
+            margin: 3px 0;
+        }
+        span:nth-child(3) {
+            display: block;
+            width: 13px;
+            height: 2px;
+            background: #393838;
+            border-radius: 10px;
+        }
+
+        &.active {
+            span:nth-child(1) {
+                transform: rotate(45deg) translate(3px,4px);
+            }
+
+            span:nth-child(2) {
+                transform: rotate(-45deg);
+            }
+
+            span:nth-child(3) {
+                transform: scale(0);
+            }
+        }
+    }
+
+    &__logo-container {}
 
     &__logo {
         width: 180px;
         height: 58px;
     }
 
-    &__logo-top {
-        
-    }
-
-    &__logo-top.green path{
-        fill: #024B1D;
-    }
-    &__logo-bottom {
-        width: 180px;
-        height: 6px;
+    &__logo-green {
+        display: none;
     }
 
     &__lang-icon {}
@@ -80,7 +114,7 @@ h2 {
     flex-direction: row;
     transform: rotate(90deg) translateY(-100vh);
     transform-origin: top left;
-    width: 500vw; // = 100vw * кол-во экранов
+    width: 100vw * $menu-items; // = 100vw * кол-во экранов
 }
 
 .screen {
@@ -88,8 +122,13 @@ h2 {
     height: 100vh;
 }
 
+.screen-container {
+    max-width: 1920px;
+}
+
 .main-screen {
-    background: url("../../img/main/bg-main.jpg") no-repeat center/cover;
+
+    background: url("../img/main/bg-main.jpg") no-repeat center/cover;
 
     &__text {
         margin: 284px 0 0 127px;
