@@ -82,7 +82,7 @@ h2 {
 }
 
 .main-screen {
-  background: url("/img/main/bg.jpg") no-repeat center/cover;
+  background: url("../../img/main/bg-main.jpg") no-repeat center/cover;
 }
 
 .main-screen__text {
