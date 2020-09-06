@@ -301,24 +301,24 @@ h5 {
     overflow: hidden;
 
 
-    &__1 {
-        animation: fog-appearing 15s linear infinite alternate;
+    &__first {
+        animation: fog-appearing 20s linear infinite;
         position: absolute;
         width: 100%;
         height: 100%;
+        opacity: 0;
         background: url('../img/main/fog-1.png');
     }
 
-    &__2 {
-        animation: fog-appearing 15s linear infinite alternate-reverse;
+    &__second {
+        animation: fog-appearing 20s linear infinite reverse;
         position: absolute;
         width: 100%;
         height: 100%;
+        opacity: 0;
         background: url('../img/main/fog-2.png');
-
     }
 }
-
 
 .tagline {
     font-size: 100px;

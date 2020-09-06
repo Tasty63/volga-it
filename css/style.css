@@ -277,19 +277,21 @@ h5 {
   overflow: hidden;
 }
 
-.fog__1 {
-  animation: fog-appearing 15s linear infinite alternate;
+.fog__first {
+  animation: fog-appearing 20s linear infinite;
   position: absolute;
   width: 100%;
   height: 100%;
+  opacity: 0;
   background: url("../img/main/fog-1.png");
 }
 
-.fog__2 {
-  animation: fog-appearing 15s linear infinite alternate-reverse;
+.fog__second {
+  animation: fog-appearing 20s linear infinite reverse;
   position: absolute;
   width: 100%;
   height: 100%;
+  opacity: 0;
   background: url("../img/main/fog-2.png");
 }
 
