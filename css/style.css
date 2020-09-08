@@ -5,6 +5,7 @@
 }
 
 body {
+  overflow: hidden;
   font-family: "Ubuntu", sans-serif;
 }
 
@@ -83,13 +84,33 @@ h5 {
   transform: scale(0);
 }
 
+.header__logo-container {
+  position: relative;
+}
+
 .header__logo {
   width: 180px;
   height: 58px;
 }
 
-.header__logo-green {
-  display: none;
+.header__logo_green {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 58px;
+}
+
+.header .visible {
+  opacity: 1;
+  display: block;
+  transition: all 2s ease;
+}
+
+.header .hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 2s ease;
 }
 
 .header__pop-up {
@@ -113,7 +134,7 @@ h5 {
   transform: translateX(-100%);
 }
 
-.container {
+.pop-up-container {
   max-width: 1060px;
   display: flex;
   padding: 260px 0 0 203px;
@@ -291,44 +312,19 @@ h5 {
   fill: white;
 }
 
-.outer-wrapper {
-  width: 100vh;
-  height: 100vw;
-  transform: rotate(-90deg) translateX(-100vh);
-  transform-origin: top left;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  position: absolute;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: row;
-  transform: rotate(90deg) translateY(-100vh);
-  transform-origin: top left;
-  width: 500vw;
-}
-
 .screen {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+  max-width: 1920px;
+  height: 980px;
 }
 
 .main-screen {
+  display: flex;
   background: url("../img/main/bg-main.jpg") no-repeat center/cover;
 }
 
 .main-screen__text {
   z-index: 2;
-  margin: 284px 0 0 127px;
-  max-width: 607px;
+  margin: 220px 0 0 127px;
 }
 
 .fog {
