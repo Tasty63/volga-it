@@ -29,6 +29,7 @@ h5 {
   align-items: center;
   justify-content: space-between;
   padding: 26px 50px;
+  height: 113px;
 }
 
 .header__icon {
@@ -85,20 +86,15 @@ h5 {
 }
 
 .header__logo-container {
-  position: relative;
-}
-
-.header__logo {
   width: 180px;
   height: 58px;
+  position: relative;
 }
 
 .header__logo_green {
   position: absolute;
   top: 0;
   left: 0;
-  width: 180px;
-  height: 58px;
 }
 
 .header .visible {
@@ -319,7 +315,15 @@ h5 {
 
 .main-screen {
   display: flex;
-  background: url("../img/main/bg-main.jpg") no-repeat center/cover;
+  background: url("../img/main/bg-main.jpg") no-repeat center/100%;
+}
+
+.main-screen.animated {
+  animation: scaleBg 1.5s linear forwards;
+}
+
+.main-screen.animated-reverse {
+  animation: scaleBgReverse 3s linear forwards;
 }
 
 .main-screen__text {
@@ -655,5 +659,23 @@ h5 {
   100% {
     opacity: 0;
     transform: translateX(-100%);
+  }
+}
+
+@keyframes scaleBg {
+  0% {
+    background-size: 100%;
+  }
+  100% {
+    background-size: 120%;
+  }
+}
+
+@keyframes scaleBgReverse {
+  0% {
+    background-size: 120%;
+  }
+  100% {
+    background-size: 100%;
   }
 }
