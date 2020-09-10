@@ -546,6 +546,22 @@ h5 {
         max-width: 823px;
     }
 
+    &__leaf.parallax-right-to-left {
+        animation: parallaxLeaf-right-to-left 3s ease forwards;
+    }
+
+    &__leaf.parallax-right-to-left_2 {
+        animation: parallaxLeaf-right-to-left_2 3s ease forwards;
+    }
+
+    &__leaf.parallax-left-to-right {
+        animation: parallaxLeaf-left-to-right 3s ease forwards;
+    }
+
+    &__leaf.parallax-left-to-right_2 {
+        animation: parallaxLeaf-left-to-right_2 3s ease forwards;
+    }
+
     &__leaf-2 {
         position: absolute;
         width: 190px;
@@ -635,6 +651,22 @@ h5 {
         letter-spacing: -0.2px;
         margin: 35px 0 70px 0;
         max-width: 892px;
+    }
+
+    &__leaf.parallax-right-to-left {
+        animation: parallaxLeaf-right-to-left 3s ease forwards;
+    }
+
+    &__leaf.parallax-right-to-left_2 {
+        animation: parallaxLeaf-right-to-left_2 3s ease forwards;
+    }
+
+    &__leaf.parallax-left-to-right {
+        animation: parallaxLeaf-left-to-right 3s ease forwards;
+    }
+
+    &__leaf.parallax-left-to-right_2 {
+        animation: parallaxLeaf-left-to-right_2 3s ease forwards;
     }
 
     &__leaf-1 {

@@ -42,8 +42,9 @@ hamburger.addEventListener('click', () => {
 
 $(document).ready(function () {
     const screen2Leafs = document.querySelectorAll('.screen-2__leaf');
-    const screen3Leaft = document.querySelectorAll('.screen3__leaf');
-    const screen5Leaft = document.querySelectorAll('.screen5__leaf');
+    const screen3Leafs = document.querySelectorAll('.screen-3__leaf');
+    const screen5Leafs = document.querySelectorAll('.screen-5__leaf');
+    const allLeafs = document.querySelectorAll('.leaf');
 
     const slider = $('.outer-wrapper');
 
@@ -89,25 +90,64 @@ $(document).ready(function () {
 
         if (currentSlide === 0 && nextSlide === 1) {
             screen2Leafs.forEach(leaf => {
-                leaf.classList.remove('parallax-left-to-right_2'); // 0 -> 1
+                leaf.classList.remove('parallax-left-to-right_2'); // 0 -> 1 //
                 leaf.classList.add('parallax-right-to-left');
             });
         } else if (currentSlide === 1 && nextSlide === 0) {
             screen2Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-left-to-right'); // 1 -> 0 //
                 leaf.classList.add('parallax-left-to-right_2');
-                leaf.classList.remove('parallax-left-to-right'); // 1 -> 0
             });
         }
 
         if (currentSlide === 1 && nextSlide === 2) {
             screen2Leafs.forEach(leaf => {
-                leaf.classList.add('parallax-right-to-left_2'); // 1 -> 2
+
+                leaf.classList.remove('parallax-left-to-right'); // 1 -> 2 //
                 leaf.classList.remove('parallax-right-to-left');
+                leaf.classList.add('parallax-right-to-left_2');
             });
+
+            screen3Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-left-to-right_2');
+                leaf.classList.add('parallax-right-to-left');
+            });
+
         } else if (currentSlide === 2 && nextSlide === 1) {
+
             screen2Leafs.forEach(leaf => {
-                leaf.classList.remove('parallax-right-to-left_2'); // 2 -> 1
+                leaf.classList.remove('parallax-right-to-left_2'); // 2 -> 1 //
                 leaf.classList.add('parallax-left-to-right');
+            });
+
+            screen3Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-left-to-right');
+                leaf.classList.add('parallax-left-to-right_2');
+            });
+        }
+
+        if (currentSlide === 2 && nextSlide === 3) {
+            screen3Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-left-to-right'); // 2 -> 3 //
+                leaf.classList.remove('parallax-right-to-left');
+                leaf.classList.add('parallax-right-to-left_2');
+            });
+        } else if (currentSlide === 3 && nextSlide === 2) {
+            screen3Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-right-to-left_2'); // 3 -> 2 //
+                leaf.classList.add('parallax-left-to-right');
+            });
+        }
+
+        if (currentSlide === 3 && nextSlide === 4) {
+            screen5Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-left-to-right_2'); // 4 -> 5 //
+                leaf.classList.add('parallax-right-to-left');
+            });
+        } else if (currentSlide === 4 && nextSlide === 3) {
+            screen5Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-left-to-right'); // 5 -> 4 //
+                leaf.classList.add('parallax-left-to-right_2');
             });
         }
 
@@ -125,6 +165,12 @@ $(document).ready(function () {
     })
 
     $('.header__logo-container').on('click', function () {
+        allLeafs.forEach(leaf => {
+            leaf.classList.remove('parallax-right-to-left');
+            leaf.classList.remove('parallax-right-to-left_2');
+            leaf.classList.remove('parallax-left-to-right');
+            leaf.classList.remove('parallax-left-to-right_2');
+        });
         slider.slick('slickGoTo', 0);
     })
 });
