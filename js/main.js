@@ -2,8 +2,6 @@ const hamburger = document.querySelector('.header__menu-icon');
 const popUp = document.querySelector('.header__pop-up');
 const navItems = document.querySelectorAll('.nav-item');
 
-
-
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
 
@@ -42,18 +40,30 @@ hamburger.addEventListener('click', () => {
 
 
 
-
 $(document).ready(function () {
+    const screen2Leafs = document.querySelectorAll('.screen-2__leaf');
+    const screen3Leaft = document.querySelectorAll('.screen3__leaf');
+    const screen5Leaft = document.querySelectorAll('.screen5__leaf');
 
-    $('.outer-wrapper').slick({
+    const slider = $('.outer-wrapper');
+
+    slider.slick({
         arrows: false,
         infinite: false,
-        speed: 4000, //~4000
+        speed: 3000, //~4000
+
+        // draggable: false,
+
+        // touchThreshold: > 5,
+        // touchMove: false,
+
     });
 
-    $('.outer-wrapper').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+
+    slider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
 
         if (nextSlide === 1) {
+
             $('.header__logo').removeClass('visible');
             $('.header__logo').addClass('hidden');
 
@@ -63,6 +73,7 @@ $(document).ready(function () {
             $('.main-screen').addClass('animated');
             $('.main-screen').removeClass('animated-reverse');
         } else if (nextSlide === 0) {
+
             $('.header__logo').removeClass('hidden');
             $('.header__logo').addClass('visible');
 
@@ -72,16 +83,48 @@ $(document).ready(function () {
             $('.main-screen').removeClass('animated');
             $('.main-screen').addClass('animated-reverse');
         }
+
+
+        //// leafs parallax /////
+
+        if (currentSlide === 0 && nextSlide === 1) {
+            screen2Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-left-to-right_2'); // 0 -> 1
+                leaf.classList.add('parallax-right-to-left');
+            });
+        } else if (currentSlide === 1 && nextSlide === 0) {
+            screen2Leafs.forEach(leaf => {
+                leaf.classList.add('parallax-left-to-right_2');
+                leaf.classList.remove('parallax-left-to-right'); // 1 -> 0
+            });
+        }
+
+        if (currentSlide === 1 && nextSlide === 2) {
+            screen2Leafs.forEach(leaf => {
+                leaf.classList.add('parallax-right-to-left_2'); // 1 -> 2
+                leaf.classList.remove('parallax-right-to-left');
+            });
+        } else if (currentSlide === 2 && nextSlide === 1) {
+            screen2Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-right-to-left_2'); // 2 -> 1
+                leaf.classList.add('parallax-left-to-right');
+            });
+        }
+
     });
 
-    $('.outer-wrapper').on('wheel', function (event) {
+    slider.on('wheel', function (event) {
         event.preventDefault();
 
         if (event.originalEvent.deltaY > 0) {
-            $('.outer-wrapper').slick('slickNext');
+            slider.slick('slickNext');
         } else {
-            $('.outer-wrapper').slick('slickPrev');
+            slider.slick('slickPrev');
         }
 
+    })
+
+    $('.header__logo-container').on('click', function () {
+        slider.slick('slickGoTo', 0);
     })
 });

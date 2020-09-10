@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 body {
@@ -319,8 +318,6 @@ h5 {
         justify-content: center;
         align-items: center;
 
-        &:hover {}
-
         &_twitter {}
 
         &_instagram {}
@@ -334,10 +331,12 @@ h5 {
         fill: white;
 
         path {
+            transition: fill 0.6s ease;
             fill: #066035;
         }
 
         &:hover {
+
             fill: url(#paint0_linear);
 
             path {
@@ -347,9 +346,18 @@ h5 {
     }
 }
 
-.outer-wrapper {}
+.outer-wrapper {
+    transition: all 0.8s ease;
+    transform: translateX(100%);
+}
 
-.screen-wrapper {}
+.outer-wrapper.slick-initialized {
+    transform: translateX(0);
+}
+
+.screen-wrapper {
+    outline: none;
+}
 
 .screen {
     max-width: 1920px;
@@ -359,14 +367,14 @@ h5 {
 .main-screen {
 
     display: flex;
-    background: url("../img/main/bg-main.jpg") no-repeat center/100%;
+    background: url("../img/main/bg-main.png") no-repeat center/100%;
 
     &.animated {
-        animation: scaleBg 1.5s linear forwards;
+        animation: scaleBg 1s linear forwards; //1.5s speed 4000
     }
 
     &.animated-reverse {
-        animation: scaleBgReverse 3s linear forwards;
+        animation: scaleBgReverse 2s linear forwards; //3s 4000
     }
 
     &__text {
@@ -460,10 +468,29 @@ h5 {
         }
     }
 
+    &__leaf {}
+
+    &__leaf.parallax-right-to-left {
+        animation: parallaxLeaf-right-to-left 3s ease forwards;
+    }
+
+    &__leaf.parallax-right-to-left_2 {
+        animation: parallaxLeaf-right-to-left_2 3s ease forwards;
+    }
+
+    &__leaf.parallax-left-to-right {
+        animation: parallaxLeaf-left-to-right 3s ease forwards;
+    }
+
+    &__leaf.parallax-left-to-right_2 {
+        animation: parallaxLeaf-left-to-right_2 3s ease forwards;
+    }
+
+
     &__leaf-2 {
         position: absolute;
         bottom: 70px;
-        left: -300px;
+        right: 700px;
     }
 
     &__leaf-3 {
@@ -656,7 +683,7 @@ h5 {
     }
 
     &__button-text {
-        transition: all 0.3s linear 0s;
+        transition: all 0.3s linear;
         display: block;
         padding: 12px 37px;
         background: white;
@@ -674,7 +701,8 @@ h5 {
 
 
 
-/// animations ////
+
+///// animations /////
 
 
 
@@ -746,5 +774,46 @@ h5 {
 
     100% {
         background-size: 100%;
+    }
+}
+
+@keyframes parallaxLeaf-right-to-left {
+    0% {
+        transform: translateX(200px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes parallaxLeaf-right-to-left_2 {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-200px);
+    }
+}
+
+
+@keyframes parallaxLeaf-left-to-right {
+    0% {
+        transform: translateX(-200px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes parallaxLeaf-left-to-right_2 {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(200px);
     }
 }

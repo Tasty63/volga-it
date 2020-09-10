@@ -297,6 +297,7 @@ h5 {
 }
 
 .social__icon path {
+  transition: fill 0.6s ease;
   fill: #066035;
 }
 
@@ -308,6 +309,19 @@ h5 {
   fill: white;
 }
 
+.outer-wrapper {
+  transition: all 0.8s ease;
+  transform: translateX(100%);
+}
+
+.outer-wrapper.slick-initialized {
+  transform: translateX(0);
+}
+
+.screen-wrapper {
+  outline: none;
+}
+
 .screen {
   max-width: 1920px;
   height: 980px;
@@ -315,15 +329,15 @@ h5 {
 
 .main-screen {
   display: flex;
-  background: url("../img/main/bg-main.jpg") no-repeat center/100%;
+  background: url("../img/main/bg-main.png") no-repeat center/100%;
 }
 
 .main-screen.animated {
-  animation: scaleBg 1.5s linear forwards;
+  animation: scaleBg 1s linear forwards;
 }
 
 .main-screen.animated-reverse {
-  animation: scaleBgReverse 3s linear forwards;
+  animation: scaleBgReverse 2s linear forwards;
 }
 
 .main-screen__text {
@@ -415,10 +429,26 @@ h5 {
   height: auto;
 }
 
+.screen-2__leaf.parallax-right-to-left {
+  animation: parallaxLeaf-right-to-left 3s ease forwards;
+}
+
+.screen-2__leaf.parallax-right-to-left_2 {
+  animation: parallaxLeaf-right-to-left_2 3s ease forwards;
+}
+
+.screen-2__leaf.parallax-left-to-right {
+  animation: parallaxLeaf-left-to-right 3s ease forwards;
+}
+
+.screen-2__leaf.parallax-left-to-right_2 {
+  animation: parallaxLeaf-left-to-right_2 3s ease forwards;
+}
+
 .screen-2__leaf-2 {
   position: absolute;
   bottom: 70px;
-  left: -300px;
+  right: 700px;
 }
 
 .screen-2__leaf-3 {
@@ -605,7 +635,7 @@ h5 {
 }
 
 .screen-5__button-text {
-  transition: all 0.3s linear 0s;
+  transition: all 0.3s linear;
   display: block;
   padding: 12px 37px;
   background: white;
@@ -677,5 +707,41 @@ h5 {
   }
   100% {
     background-size: 100%;
+  }
+}
+
+@keyframes parallaxLeaf-right-to-left {
+  0% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes parallaxLeaf-right-to-left_2 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-200px);
+  }
+}
+
+@keyframes parallaxLeaf-left-to-right {
+  0% {
+    transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes parallaxLeaf-left-to-right_2 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(200px);
   }
 }
