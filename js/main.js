@@ -45,6 +45,12 @@ $(document).ready(function () {
     const screen3Leafs = document.querySelectorAll('.screen-3__leaf');
     const screen5Leafs = document.querySelectorAll('.screen-5__leaf');
     const allLeafs = document.querySelectorAll('.leaf');
+    const title1 = document.querySelector('.screen-2__title');
+    const subtitle1 = document.querySelector('.screen-2__subtitle');
+    const title2 = document.querySelector('.screen-3__title');
+    const subtitle2 = document.querySelector('.screen-3__subtitle');
+    const video = document.querySelector('.video');
+    const iconPlay = document.querySelector('.icon-play');
 
     const slider = $('.outer-wrapper');
 
@@ -60,6 +66,129 @@ $(document).ready(function () {
 
     });
 
+    function toggleItemsAnimation(currentSlide, nextSlide) {
+        if (currentSlide === 0 && nextSlide === 1) { // 1 -> 2 //
+
+            title1.classList.remove('parallax-right-to-left_2');
+            subtitle1.classList.remove('parallax-right-to-left_2');
+
+            title1.classList.add('parallax-right-to-left');
+            subtitle1.classList.add('parallax-right-to-left');
+
+        } else if (currentSlide === 1 && nextSlide === 0) { // 2 -> 1 //
+
+            title1.classList.remove('parallax-right-to-left');
+            subtitle1.classList.remove('parallax-right-to-left');
+        }
+
+        if (currentSlide === 1 && nextSlide === 2) { // 2 -> 3 //
+
+            title1.classList.remove('parallax-right-to-left');
+            subtitle1.classList.remove('parallax-right-to-left');
+
+            title1.classList.add('parallax-right-to-left_2');
+            subtitle1.classList.add('parallax-right-to-left_2');
+
+            title2.classList.add('parallax-right-to-left');
+            subtitle2.classList.add('parallax-right-to-left');
+
+        } else if (currentSlide === 2 && nextSlide === 1) { // 3 -> 2 //
+            title1.classList.remove('parallax-right-to-left_2');
+            subtitle1.classList.remove('parallax-right-to-left_2');
+        }
+
+        if (currentSlide === 2 && nextSlide === 3) { // 3 -> 4 //
+
+            title2.classList.remove('parallax-right-to-left');
+            subtitle2.classList.remove('parallax-right-to-left');
+
+            title2.classList.add('parallax-right-to-left_2');
+            subtitle2.classList.add('parallax-right-to-left_2');
+
+            video.classList.add('move');
+            iconPlay.classList.add('move');
+
+        } else if (currentSlide === 3 && nextSlide === 2) { // 4 -> 3 //
+            title2.classList.remove('parallax-right-to-left_2');
+            subtitle2.classList.remove('parallax-right-to-left_2');
+        }
+
+        if (currentSlide === 3 && nextSlide === 4) { // 4 -> 5 //
+
+        } else if (currentSlide === 4 && nextSlide === 3) { // 5 -> 4 //
+
+        }
+
+    }
+
+    function toggleParallaxLeafs(currentSlide, nextSlide) {
+        if (currentSlide === 0 && nextSlide === 1) { // 0 -> 1 //
+
+            screen2Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-left-to-right_2');
+                leaf.classList.add('parallax-right-to-left');
+            });
+
+        } else if (currentSlide === 1 && nextSlide === 0) { // 1 -> 0 //
+
+            screen2Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-left-to-right');
+                leaf.classList.remove('parallax-right-to-left');
+                leaf.classList.add('parallax-left-to-right_2');
+            });
+        }
+
+        if (currentSlide === 1 && nextSlide === 2) { // 1 -> 2 //
+
+            screen2Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-left-to-right');
+                leaf.classList.remove('parallax-right-to-left');
+                leaf.classList.add('parallax-right-to-left_2');
+            });
+
+            screen3Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-left-to-right_2');
+                leaf.classList.add('parallax-right-to-left');
+            });
+
+        } else if (currentSlide === 2 && nextSlide === 1) { // 2 -> 1 //
+
+            screen2Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-right-to-left_2');
+                leaf.classList.add('parallax-left-to-right');
+            });
+
+            screen3Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-left-to-right');
+                leaf.classList.add('parallax-left-to-right_2');
+            });
+        }
+
+        if (currentSlide === 2 && nextSlide === 3) { // 2 -> 3 //
+            screen3Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-left-to-right');
+                leaf.classList.remove('parallax-right-to-left');
+                leaf.classList.add('parallax-right-to-left_2');
+            });
+        } else if (currentSlide === 3 && nextSlide === 2) { // 3 -> 2 //
+            screen3Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-right-to-left_2');
+                leaf.classList.add('parallax-left-to-right');
+            });
+        }
+
+        if (currentSlide === 3 && nextSlide === 4) { // 4 -> 5 //
+            screen5Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-left-to-right_2');
+                leaf.classList.add('parallax-right-to-left');
+            });
+        } else if (currentSlide === 4 && nextSlide === 3) { // 5 -> 4 //
+            screen5Leafs.forEach(leaf => {
+                leaf.classList.remove('parallax-left-to-right');
+                leaf.classList.add('parallax-left-to-right_2');
+            });
+        }
+    }
 
     slider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
 
@@ -86,70 +215,40 @@ $(document).ready(function () {
         }
 
 
-        //// leafs parallax /////
-
-        if (currentSlide === 0 && nextSlide === 1) {
-            screen2Leafs.forEach(leaf => {
-                leaf.classList.remove('parallax-left-to-right_2'); // 0 -> 1 //
-                leaf.classList.add('parallax-right-to-left');
-            });
-        } else if (currentSlide === 1 && nextSlide === 0) {
-            screen2Leafs.forEach(leaf => {
-                leaf.classList.remove('parallax-left-to-right'); // 1 -> 0 //
-                leaf.classList.add('parallax-left-to-right_2');
-            });
+        if (nextSlide === 2) {
+            $('.screen-2__img-left .img-left').addClass('imgScaled');
+            $('.screen-2__img-right .img-right').addClass('imgScaled');
+        } else if (currentSlide === 2) {
+            $('.screen-2__img-left .img-left').removeClass('imgScaled');
+            $('.screen-2__img-right .img-right').removeClass('imgScaled');
         }
 
-        if (currentSlide === 1 && nextSlide === 2) {
-            screen2Leafs.forEach(leaf => {
-
-                leaf.classList.remove('parallax-left-to-right'); // 1 -> 2 //
-                leaf.classList.remove('parallax-right-to-left');
-                leaf.classList.add('parallax-right-to-left_2');
-            });
-
-            screen3Leafs.forEach(leaf => {
-                leaf.classList.remove('parallax-left-to-right_2');
-                leaf.classList.add('parallax-right-to-left');
-            });
-
-        } else if (currentSlide === 2 && nextSlide === 1) {
-
-            screen2Leafs.forEach(leaf => {
-                leaf.classList.remove('parallax-right-to-left_2'); // 2 -> 1 //
-                leaf.classList.add('parallax-left-to-right');
-            });
-
-            screen3Leafs.forEach(leaf => {
-                leaf.classList.remove('parallax-left-to-right');
-                leaf.classList.add('parallax-left-to-right_2');
-            });
+        if (nextSlide === 3) {
+            $('.screen-3__img-left .img-left').addClass('imgScaled');
+            $('.screen-3__img-right .img-right').addClass('imgScaled');
+        } else if (currentSlide === 3) {
+            $('.screen-3__img-left .img-left').removeClass('imgScaled');
+            $('.screen-3__img-right .img-right').removeClass('imgScaled');
         }
 
-        if (currentSlide === 2 && nextSlide === 3) {
-            screen3Leafs.forEach(leaf => {
-                leaf.classList.remove('parallax-left-to-right'); // 2 -> 3 //
-                leaf.classList.remove('parallax-right-to-left');
-                leaf.classList.add('parallax-right-to-left_2');
-            });
-        } else if (currentSlide === 3 && nextSlide === 2) {
-            screen3Leafs.forEach(leaf => {
-                leaf.classList.remove('parallax-right-to-left_2'); // 3 -> 2 //
-                leaf.classList.add('parallax-left-to-right');
-            });
+        if (nextSlide === 4) {
+            $('.video-preview').addClass('imgScaled');
+        } else if (currentSlide === 4) {
+            $('.video-preview').removeClass('imgScaled');
         }
 
-        if (currentSlide === 3 && nextSlide === 4) {
-            screen5Leafs.forEach(leaf => {
-                leaf.classList.remove('parallax-left-to-right_2'); // 4 -> 5 //
-                leaf.classList.add('parallax-right-to-left');
-            });
-        } else if (currentSlide === 4 && nextSlide === 3) {
-            screen5Leafs.forEach(leaf => {
-                leaf.classList.remove('parallax-left-to-right'); // 5 -> 4 //
-                leaf.classList.add('parallax-left-to-right_2');
-            });
+
+
+        if (nextSlide === 2) {
+            $('.screen-3__img-left .img-left').addClass('changing');
         }
+
+
+
+
+
+        toggleParallaxLeafs(currentSlide, nextSlide);
+        toggleItemsAnimation(currentSlide, nextSlide);
 
     });
 
@@ -171,6 +270,10 @@ $(document).ready(function () {
             leaf.classList.remove('parallax-left-to-right');
             leaf.classList.remove('parallax-left-to-right_2');
         });
+
+        title2.classList.remove('parallax-right-to-left');
+        subtitle2.classList.remove('parallax-right-to-left');
+
         slider.slick('slickGoTo', 0);
     })
 });

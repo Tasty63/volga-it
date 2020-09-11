@@ -360,6 +360,7 @@ h5 {
 }
 
 .screen {
+    width: 100%;
     max-width: 1920px;
     height: 980px;
 }
@@ -370,16 +371,17 @@ h5 {
     background: url("../img/main/bg-main.png") no-repeat center/100%;
 
     &.animated {
-        animation: scaleBg 1s linear forwards; //1.5s speed 4000
+        animation: scaleBg 2s ease-out forwards;
     }
 
     &.animated-reverse {
-        animation: scaleBgReverse 2s linear forwards; //3s 4000
+        animation: scaleBgReverse 2s linear forwards;
     }
 
     &__text {
         z-index: 2;
         margin: 220px 0 0 127px;
+
     }
 
 }
@@ -431,9 +433,12 @@ h5 {
     &__img-left {
         position: relative;
         margin: 110px 97px 0 127px;
+        max-width: 516px;
+        width: 100%;
 
         .img-left {
-            max-width: 516px;
+            width: 100%;
+            height: auto;
         }
     }
 
@@ -453,39 +458,22 @@ h5 {
         line-height: 30px;
         color: #393838;
         margin: 38px 0 50px 0;
+
         max-width: 898px;
+
     }
 
     &__img-right {
         position: relative;
-        margin: 0 50px 0 auto;
+        margin: 0 50px 0px auto;
         max-width: 593px;
-        max-height: 382px;
+        width: 100%;
 
         .img-right {
-            max-width: 100%;
+            width: 100%;
             height: auto;
         }
     }
-
-    &__leaf {}
-
-    &__leaf.parallax-right-to-left {
-        animation: parallaxLeaf-right-to-left 3s ease forwards;
-    }
-
-    &__leaf.parallax-right-to-left_2 {
-        animation: parallaxLeaf-right-to-left_2 3s ease forwards;
-    }
-
-    &__leaf.parallax-left-to-right {
-        animation: parallaxLeaf-left-to-right 3s ease forwards;
-    }
-
-    &__leaf.parallax-left-to-right_2 {
-        animation: parallaxLeaf-left-to-right_2 3s ease forwards;
-    }
-
 
     &__leaf-2 {
         position: absolute;
@@ -520,7 +508,28 @@ h5 {
     position: relative;
 
     &__img-left {
+        position: relative;
+        max-width: 643px;
+        width: 100%;
         margin-right: 97px;
+
+        .img-left {
+            width: 100%;
+            height: auto;
+        }
+
+        .img-left_fall {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            z-index: 1;
+
+            &.changing {
+                animation: seasonChange 4s linear 2s infinite alternate;
+            }
+        }
+
     }
 
     &__content {
@@ -544,22 +553,6 @@ h5 {
         color: #393838;
         margin: 38px 0 50px 0;
         max-width: 823px;
-    }
-
-    &__leaf.parallax-right-to-left {
-        animation: parallaxLeaf-right-to-left 3s ease forwards;
-    }
-
-    &__leaf.parallax-right-to-left_2 {
-        animation: parallaxLeaf-right-to-left_2 3s ease forwards;
-    }
-
-    &__leaf.parallax-left-to-right {
-        animation: parallaxLeaf-left-to-right 3s ease forwards;
-    }
-
-    &__leaf.parallax-left-to-right_2 {
-        animation: parallaxLeaf-left-to-right_2 3s ease forwards;
     }
 
     &__leaf-2 {
@@ -586,26 +579,41 @@ h5 {
     }
 
     &__img-right {
-        width: 593px;
-        height: 376px;
+        max-width: 593px;
+        width: 100%;
         margin: 0 127px 105px auto;
 
-        .river-img {}
+        .right-img {
+            width: 100%;
+            height: auto;
+        }
     }
 
 }
 
 .screen-4 {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .video {
+
+    position: relative;
+    width: 100%;
+    max-width: 1666px;
+    transform: translateX(100%);
+    transition: all 1.5s ease 2s;
+
     .video-preview {
-        max-width: 100%;
+        width: 100%;
+        height: auto;
     }
+
+    &.move {
+        transform: translateX(0);
+    }
+
 }
 
 .icon-play {
@@ -613,7 +621,8 @@ h5 {
     z-index: 1;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transition: all 1.5s ease 2.5s;
+    transform: translateX(100vw) translate(-50%, -50%);
 
     &:hover {
         cursor: pointer;
@@ -625,6 +634,10 @@ h5 {
         .circle-2 {
             opacity: 0.15;
         }
+    }
+
+    &.move {
+        transform: translateX(0) translate(-50%, -50%);
     }
 }
 
@@ -653,21 +666,6 @@ h5 {
         max-width: 892px;
     }
 
-    &__leaf.parallax-right-to-left {
-        animation: parallaxLeaf-right-to-left 3s ease forwards;
-    }
-
-    &__leaf.parallax-right-to-left_2 {
-        animation: parallaxLeaf-right-to-left_2 3s ease forwards;
-    }
-
-    &__leaf.parallax-left-to-right {
-        animation: parallaxLeaf-left-to-right 3s ease forwards;
-    }
-
-    &__leaf.parallax-left-to-right_2 {
-        animation: parallaxLeaf-left-to-right_2 3s ease forwards;
-    }
 
     &__leaf-1 {
         position: absolute;
@@ -736,7 +734,33 @@ h5 {
 
 ///// animations /////
 
+.imgScaled {
+    animation: scaleImages 2s ease forwards;
+}
 
+.leaf.parallax-right-to-left {
+    animation: parallax-right-to-left 3s ease forwards;
+}
+
+.leaf.parallax-right-to-left_2 {
+    animation: parallax-right-to-left_2 3s ease forwards;
+}
+
+.leaf.parallax-left-to-right {
+    animation: parallax-left-to-right 3s ease forwards;
+}
+
+.leaf.parallax-left-to-right_2 {
+    animation: parallax-left-to-right_2 3s ease forwards;
+}
+
+.parallax-right-to-left {
+    animation: parallax-right-to-left 2s ease 0.5s backwards;
+}
+
+.parallax-right-to-left_2 {
+    animation: parallax-right-to-left_2 2s ease 0.5s;
+}
 
 @keyframes fog-appearing {
     0% {
@@ -809,7 +833,7 @@ h5 {
     }
 }
 
-@keyframes parallaxLeaf-right-to-left {
+@keyframes parallax-right-to-left {
     0% {
         transform: translateX(200px);
     }
@@ -819,7 +843,7 @@ h5 {
     }
 }
 
-@keyframes parallaxLeaf-right-to-left_2 {
+@keyframes parallax-right-to-left_2 {
     0% {
         transform: translateX(0);
     }
@@ -830,7 +854,7 @@ h5 {
 }
 
 
-@keyframes parallaxLeaf-left-to-right {
+@keyframes parallax-left-to-right {
     0% {
         transform: translateX(-200px);
     }
@@ -840,7 +864,7 @@ h5 {
     }
 }
 
-@keyframes parallaxLeaf-left-to-right_2 {
+@keyframes parallax-left-to-right_2 {
     0% {
         transform: translateX(0);
     }
@@ -849,3 +873,33 @@ h5 {
         transform: translateX(200px);
     }
 }
+
+@keyframes scaleImages {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 105%;
+    }
+}
+
+@keyframes seasonChange {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+// @media () screen 
