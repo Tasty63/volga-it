@@ -561,7 +561,7 @@ h5 {
   position: relative;
   width: 100%;
   max-width: 1666px;
-  padding: 50px 20px 0 20px;
+  padding: 50px 100px;
   transform: translateX(100%);
   transition: all 1.5s ease 1.5s;
 }
