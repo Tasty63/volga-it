@@ -25,6 +25,7 @@ const mainScreen = document.querySelector('.main-screen');
 const screen2ImgLeft = document.querySelector('.screen-2__img-left .img-left')
 const screen2ImgRight = document.querySelector('.screen-2__img-right .img-right');
 const screen3ImgLeft = document.querySelector('.screen-3__img-left .img-left');
+const screen3ImgLeftFall = document.querySelector('.screen-3__img-left .img-left_fall')
 const screen3ImgRight = document.querySelector('.screen-3__img-right .img-right');
 const videoPreview = document.querySelector('.video-preview');
 
@@ -48,8 +49,6 @@ hamburger.addEventListener('click', () => {
     }
 
 });
-
-
 
 $(document).ready(function () {
 
@@ -221,7 +220,7 @@ $(document).ready(function () {
             mainScreen.classList.remove('animated-reverse');
         }
         if (nextSlide === 2) {
-            screen3ImgLeft.classList.add('changing');
+            screen3ImgLeftFall.classList.add('changing');
 
             screen2ImgLeft.classList.add('imgScaled');
             screen2ImgRight.classList.add('imgScaled');
