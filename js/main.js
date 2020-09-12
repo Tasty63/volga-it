@@ -2,6 +2,32 @@ const hamburger = document.querySelector('.header__menu-icon');
 const popUp = document.querySelector('.header__pop-up');
 const navItems = document.querySelectorAll('.nav-item');
 
+const screen2Leafs = document.querySelectorAll('.screen-2__leaf');
+const screen3Leafs = document.querySelectorAll('.screen-3__leaf');
+const screen5Leafs = document.querySelectorAll('.screen-5__leaf');
+const allLeafs = document.querySelectorAll('.leaf');
+
+const title1 = document.querySelector('.screen-2__title');
+const subtitle1 = document.querySelector('.screen-2__subtitle');
+const title2 = document.querySelector('.screen-3__title');
+const subtitle2 = document.querySelector('.screen-3__subtitle');
+const video = document.querySelector('.video');
+const iconPlay = document.querySelector('.icon-play');
+const packages = document.querySelector('.packages');
+const title5 = document.querySelector('.screen-5__title');
+const subtitel5 = document.querySelector('.screen-5__subtitle');
+const button = document.querySelector('.screen-5__button');
+
+const logo = document.querySelector('.header__logo');
+const logoGreen = document.querySelector('.header__logo_green');
+const mainScreen = document.querySelector('.main-screen');
+
+const screen2ImgLeft = document.querySelector('.screen-2__img-left .img-left')
+const screen2ImgRight = document.querySelector('.screen-2__img-right .img-right');
+const screen3ImgLeft = document.querySelector('.screen-3__img-left .img-left');
+const screen3ImgRight = document.querySelector('.screen-3__img-right .img-right');
+const videoPreview = document.querySelector('.video-preview');
+
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
 
@@ -23,43 +49,17 @@ hamburger.addEventListener('click', () => {
 
 });
 
-// navItems.forEach(item => {
-//     if (hamburger.classList.contains('active')) {
-//         item.classList.add('active');
-//         item.classList.remove('hidden');
-//         popUp.classList.add('active');
-//         popUp.classList.remove('hidden');
-//     } else {
-//         item.classList.add('hidden');
-//         item.classList.remove('active');
-//         popUp.classList.add('hidden');
-//         popUp.classList.remove('active');
-//     }
-// });
-
-
 
 
 $(document).ready(function () {
-    const screen2Leafs = document.querySelectorAll('.screen-2__leaf');
-    const screen3Leafs = document.querySelectorAll('.screen-3__leaf');
-    const screen5Leafs = document.querySelectorAll('.screen-5__leaf');
-    const allLeafs = document.querySelectorAll('.leaf');
-    const title1 = document.querySelector('.screen-2__title');
-    const subtitle1 = document.querySelector('.screen-2__subtitle');
-    const title2 = document.querySelector('.screen-3__title');
-    const subtitle2 = document.querySelector('.screen-3__subtitle');
-    const video = document.querySelector('.video');
-    const iconPlay = document.querySelector('.icon-play');
 
     const slider = $('.outer-wrapper');
 
     slider.slick({
         arrows: false,
         infinite: false,
-        speed: 3000, //~4000
-
-        // draggable: false,
+        speed: 3000,
+        draggable: false,
 
         // touchThreshold: > 5,
         // touchMove: false,
@@ -114,9 +114,15 @@ $(document).ready(function () {
         }
 
         if (currentSlide === 3 && nextSlide === 4) { // 4 -> 5 //
-
-        } else if (currentSlide === 4 && nextSlide === 3) { // 5 -> 4 //
-
+            packages.classList.add('parallax-right-to-left');
+            title5.classList.add('parallax-right-to-left');
+            subtitel5.classList.add('parallax-right-to-left');
+            button.classList.add('parallax-right-to-left');
+        } else if (currentSlide === 4) { // 5 -> 4 //
+            packages.classList.remove('parallax-right-to-left');
+            title5.classList.remove('parallax-right-to-left');
+            subtitel5.classList.remove('parallax-right-to-left');
+            button.classList.remove('parallax-right-to-left');
         }
 
     }
@@ -190,66 +196,61 @@ $(document).ready(function () {
         }
     }
 
-    slider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+    function toggleOthersAmimations(currentSlide, nextSlide) {
 
+        if (nextSlide === 0) {
+
+            logo.classList.remove('hidden');
+            logo.classList.add('visible');
+
+            logoGreen.classList.remove('visible');
+            logoGreen.classList.add('hidden');
+
+            mainScreen.classList.remove('animated');
+            mainScreen.classList.add('animated-reverse');
+        }
         if (nextSlide === 1) {
 
-            $('.header__logo').removeClass('visible');
-            $('.header__logo').addClass('hidden');
+            logo.classList.remove('visible');
+            logo.classList.add('hidden');
 
-            $('.header__logo_green').removeClass('hidden');
-            $('.header__logo_green').addClass('visible');
+            logoGreen.classList.remove('hidden');
+            logoGreen.classList.add('visible');
 
-            $('.main-screen').addClass('animated');
-            $('.main-screen').removeClass('animated-reverse');
-        } else if (nextSlide === 0) {
-
-            $('.header__logo').removeClass('hidden');
-            $('.header__logo').addClass('visible');
-
-            $('.header__logo_green').removeClass('visible');
-            $('.header__logo_green').addClass('hidden');
-
-            $('.main-screen').removeClass('animated');
-            $('.main-screen').addClass('animated-reverse');
+            mainScreen.classList.add('animated');
+            mainScreen.classList.remove('animated-reverse');
         }
-
-
         if (nextSlide === 2) {
-            $('.screen-2__img-left .img-left').addClass('imgScaled');
-            $('.screen-2__img-right .img-right').addClass('imgScaled');
-        } else if (currentSlide === 2) {
-            $('.screen-2__img-left .img-left').removeClass('imgScaled');
-            $('.screen-2__img-right .img-right').removeClass('imgScaled');
-        }
+            screen3ImgLeft.classList.add('changing');
 
+            screen2ImgLeft.classList.add('imgScaled');
+            screen2ImgRight.classList.add('imgScaled');
+        }
+        if (currentSlide === 2) {
+            screen2ImgLeft.classList.remove('imgScaled');
+            screen2ImgRight.classList.remove('imgScaled');
+        }
         if (nextSlide === 3) {
-            $('.screen-3__img-left .img-left').addClass('imgScaled');
-            $('.screen-3__img-right .img-right').addClass('imgScaled');
-        } else if (currentSlide === 3) {
-            $('.screen-3__img-left .img-left').removeClass('imgScaled');
-            $('.screen-3__img-right .img-right').removeClass('imgScaled');
+            screen3ImgLeft.classList.add('imgScaled');
+            screen3ImgRight.classList.add('imgScaled');
         }
-
+        if (currentSlide === 3) {
+            screen3ImgLeft.classList.remove('imgScaled');
+            screen3ImgRight.classList.remove('imgScaled');
+        }
         if (nextSlide === 4) {
-            $('.video-preview').addClass('imgScaled');
-        } else if (currentSlide === 4) {
-            $('.video-preview').removeClass('imgScaled');
+            videoPreview.classList.add('imgScaled');
+        }
+        if (currentSlide === 4) {
+            videoPreview.classList.remove('imgScaled');
         }
 
+    }
 
-
-        if (nextSlide === 2) {
-            $('.screen-3__img-left .img-left').addClass('changing');
-        }
-
-
-
-
-
+    slider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
         toggleParallaxLeafs(currentSlide, nextSlide);
         toggleItemsAnimation(currentSlide, nextSlide);
-
+        toggleOthersAmimations(currentSlide, nextSlide)
     });
 
     slider.on('wheel', function (event) {
@@ -271,8 +272,8 @@ $(document).ready(function () {
             leaf.classList.remove('parallax-left-to-right_2');
         });
 
-        title2.classList.remove('parallax-right-to-left');
-        subtitle2.classList.remove('parallax-right-to-left');
+        title2.classList.remove('parallax-right-to-left_2');
+        subtitle2.classList.remove('parallax-right-to-left_2');
 
         slider.slick('slickGoTo', 0);
     })
