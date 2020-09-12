@@ -59,10 +59,6 @@ $(document).ready(function () {
         infinite: false,
         speed: 3000,
         draggable: false,
-
-        // touchThreshold: > 5,
-        // touchMove: false,
-
     });
 
     function toggleItemsAnimation(currentSlide, nextSlide) {
@@ -195,7 +191,7 @@ $(document).ready(function () {
         }
     }
 
-    function toggleOthersAmimations(currentSlide, nextSlide) {
+    function toggleOtherAmimations(currentSlide, nextSlide) {
 
         if (nextSlide === 0) {
 
@@ -230,11 +226,12 @@ $(document).ready(function () {
             screen2ImgRight.classList.remove('imgScaled');
         }
         if (nextSlide === 3) {
-            screen3ImgLeft.classList.add('imgScaled');
+
+            screen3ImgLeftFall.classList.add('imgScaled');
             screen3ImgRight.classList.add('imgScaled');
         }
         if (currentSlide === 3) {
-            screen3ImgLeft.classList.remove('imgScaled');
+            screen3ImgLeftFall.classList.remove('imgScaled');
             screen3ImgRight.classList.remove('imgScaled');
         }
         if (nextSlide === 4) {
@@ -249,7 +246,7 @@ $(document).ready(function () {
     slider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
         toggleParallaxLeafs(currentSlide, nextSlide);
         toggleItemsAnimation(currentSlide, nextSlide);
-        toggleOthersAmimations(currentSlide, nextSlide)
+        toggleOtherAmimations(currentSlide, nextSlide)
     });
 
     slider.on('wheel', function (event) {

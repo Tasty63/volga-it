@@ -424,6 +424,7 @@ h5 {
   line-height: 30px;
   color: #393838;
   margin: 38px 0 50px 0;
+  max-width: 898px;
 }
 
 .screen-2__img-right {
@@ -560,7 +561,7 @@ h5 {
   position: relative;
   width: 100%;
   max-width: 1666px;
-  padding: 100px;
+  padding: 50px 20px 0 20px;
   transform: translateX(100%);
   transition: all 1.5s ease 1.5s;
 }
@@ -916,6 +917,7 @@ h5 {
   .screen-2__subtitle {
     font-size: 16px;
     line-height: 25px;
+    max-width: 100%;
   }
   .screen-3__img-left {
     margin: auto;
