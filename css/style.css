@@ -315,7 +315,7 @@ h5 {
 }
 
 .outer-wrapper {
-  transition: all 0.8s ease 0.5s;
+  transition: all 0.8s ease 0.7s;
   transform: translateX(100%);
 }
 
